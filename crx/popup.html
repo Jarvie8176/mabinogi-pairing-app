@@ -1,0 +1,53 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+<head>
+	<script src="js/jquery-2.0.3.min.js"></script>
+	<script src="js/popup.js"></script>
+
+	<title>Getting Started Extension's Popup</title>
+
+	<style type="text/css">
+		body {
+			margin: 10px;
+			white-space: nowrap;
+		}
+
+		h1 {
+			font-size: 15px;
+		}
+
+		#container {
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		#container div {
+			margin: 10px
+		}
+
+		.control-buttons span button {
+			margin: 0px 5px
+		}
+	</style>
+</head>
+
+<body>
+<h1>今天有人每日吗</h1>
+<div id="container">
+	<div class="control-buttons">
+		<span>
+		<button id="button-signup">搞事</button>
+		<button id="button-signoff">溜了</button>
+	</span>
+	</div>
+	<div class="count-info">
+		<span>有<span id="conn-count">0</span>个大佬</span>
+	</div>
+</div>
+</body>
+</html>
