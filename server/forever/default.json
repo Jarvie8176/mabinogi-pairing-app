@@ -1,0 +1,7 @@
+{
+  "uid": "mabinogi-pairing-server",
+  "minUptime": 3000,
+  "append": true,
+  "watch": false,
+  "script": "index.js"
+}
