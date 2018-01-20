@@ -6,48 +6,81 @@
  -->
 <html>
 <head>
-	<script src="js/jquery-2.0.3.min.js"></script>
-	<script src="js/popup.js"></script>
+    <script src="js/vendor/lodash.min.js"></script>
+    <script src="js/vendor/jquery-2.0.3.min.js"></script>
+    <script src="js/vendor/jquery-ui.min.js"></script>
+    <script src="js/popup.js"></script>
 
-	<title>Getting Started Extension's Popup</title>
+    <title>Getting Started Extension's Popup</title>
 
-	<style type="text/css">
-		body {
-			margin: 10px;
-			white-space: nowrap;
-		}
+    <style type="text/css">
+        body {
+            margin: 10px;
+            white-space: nowrap;
+        }
 
-		h1 {
-			font-size: 15px;
-		}
+        #splash form input {
+            border: 1.5em;
+            font-size: 2em;
+        }
 
-		#container {
-			align-items: center;
-			justify-content: space-between;
-		}
+        h1 {
+            margin: 0.5em;
+            font-size: 1.5em;
+        }
 
-		#container div {
-			margin: 10px
-		}
+        .container {
+            justify-content: space-between;
+        }
 
-		.control-buttons span button {
-			margin: 0px 5px
-		}
-	</style>
+        .container div {
+            margin: 0.5em 0.5em 1.5em 0.5em;
+        }
+
+        .control-panel * {
+            display: inline-flex;
+            margin: 0.5em 0.5em;
+            font-size: 1.2em;
+            vertical-align: middle;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #connIndicator {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: normal;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
-<h1>今天有人每日吗</h1>
-<div id="container">
-	<div class="control-buttons">
-		<span>
-		<button id="button-signup">搞事</button>
-		<button id="button-signoff">溜了</button>
-	</span>
-	</div>
-	<div class="count-info">
-		<span>有<span id="conn-count">0</span>个大佬</span>
-	</div>
+
+<div class="container" id="splash" style="display:none">
+    <form id="name-form">
+        <input type="text" name="name" placeholder="君の名は">
+    </form>
+</div>
+
+<div class="container">
+    <h1>今天有人每日吗</h1>
+    <hr>
+    <div class="control-panel">
+        <button id="button-signup">搞事</button>
+        <button id="button-signoff">溜了</button>
+        <button id="button-reset">换人</button>
+        <span id="connIndicator">离线</span>
+    </div>
+    <div class="wlist-info">
+        有<span id="conn-count">0</span>个大佬
+        <hr>
+        <div id="waiting-list">
+            <ol id="wlist-data"></ol>
+        </div>
+        <div id="scrollArea" class="clusterize-scroll">
+        </div>
+    </div>
 </div>
 </body>
 </html>

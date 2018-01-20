@@ -1,5 +1,9 @@
+const path = require("path");
+const config = require("config");
 const express = require("express");
 const socketio = require("socket.io");
+
+const clientEventHandler = require(path.join(config.get("paths.basePath"), "adapter/clientEventHandler"));
 
 let port = 3000;
 let count = 0;
@@ -12,20 +16,10 @@ app.get("/", (req, res) => { res.send("response"); });
 
 io.on("connect", (socket) => {
     socket.emit("message", { hello: "world" });
-
-    socket.on("signup", (payload) => {
-        count++;
-        console.log(`sign on, name: ${payload.name}, count: ${count}`);
-        socket.emit("countUpdate", { count: count });
-        socket.broadcast.emit("countUpdate", { count: count });
-    });
-
-    socket.on("signoff", (payload) => {
-        count--;
-        console.log(`sign off, name: ${payload.name}, count: ${count}`);
-        socket.emit("countUpdate", { count: count });
-        socket.broadcast.emit("countUpdate", { count: count });
-    });
+    console.log("new connection");
+    clientEventHandler.registerHandler(socket);
 });
 
-server.listen(port, () => { console.log(`server listening on ${port}`); });
+server.listen(port, () => {
+    console.log(`server listening on ${port}`);
+});
