@@ -11,7 +11,7 @@ function elemSync(storage) {
     console.log(storage);
     $("#conn-count").text(storage.waitingList.length);
     $("#connIndicator").text((storage.connected) ? "同步中" : "离线");
-    $("#connIndicator").css("color", (storage.connected) ? "#B5CAA0" : "#000000");
+    $("#connIndicator").css("color", (storage.connected) ? "#227D51" : "#000000");
     if (!storage.name) {
         $(".container").css("display", "none");
         $("#splash").css("display", "block");
@@ -89,7 +89,8 @@ $(document).ready(() => {
                 }));
                 break;
             case "connectionUpdate":
-                $("#connIndicator").css("color", (req.payload.connected) ? "#B5CAA0" : "#000000");
+                $("#connIndicator").css("color", (req.payload.connected) ? "#227D51" : "#000000");
+                $("#connIndicator").text((req.payload.connected) ? "同步中" : "离线");
                 break;
             default:
                 console.log(`unsupported message: ${req.messageType}`);
