@@ -16,6 +16,11 @@ class ClientEventHandler {
 
     registerHandler(socket) {
         socket.on("signup", (payload) => {
+            // validation
+            if (typeof(payload.name) !== "string") {
+                console.log("invalid singup: invalid parameter: name");
+            }
+
             return sequelize.transaction(() => {
                 return Promise.try(() => {
                     return models.profile.findOne({
@@ -51,6 +56,11 @@ class ClientEventHandler {
         });
 
         socket.on("signoff", (payload) => {
+            // validation
+            if (typeof(payload.name) !== "string") {
+                console.log("invalid singup: invalid parameter: name");
+            }
+
             return sequelize.transaction(() => {
                 return Promise.try(() => {
                     return models.profile.findOne({
