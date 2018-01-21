@@ -9,7 +9,7 @@ function elemLoad() {
 
 function elemSync(storage) {
     console.log(storage);
-    $("#conn-count").text(storage.waitingList.length);
+    $("#conn-count").text(storage["waitingList.length"] || 0);
     $("#connIndicator").text((storage.connected) ? "同步中" : "离线");
     $("#connIndicator").css("color", (storage.connected) ? "#227D51" : "#000000");
     if (!storage.name) {

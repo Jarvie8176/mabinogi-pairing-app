@@ -105,7 +105,7 @@ function init() {
     browserListenerSetup();
     startConnection();
     badgeUpdate({
-        count: localStorage.waitingList.length,
+        count: localStorage["waitingList.length"],
         connected: ws.connected
     });
 }

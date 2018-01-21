@@ -3,7 +3,7 @@
 
 	"name": "今天有人每日吗",
 	"description": "",
-	"version": "1.0",
+	"version": "1.0.1",
 
 	"browser_action": {
 		"default_icon": "img/icon.png",
